@@ -17,7 +17,16 @@ Arredonde o tempo em minutos
     O tempo aproximado do Download é: 3 minuto(s)
 
 """
+from math import ceil
 
 
 def calcular_tempo_de_download():
     """Escreva aqui em baixo a sua solução"""
+    mb = float(input('Informe o tamanho do arquivo em Megabytes:'))
+    velocidade = int(input('Informe a velocidade do link de Internet em Megabytes por segundo:'))
+    tamanho_em_megabits = mb * 8
+    tempo_em_segundos = tamanho_em_megabits / velocidade
+    tempo = round(tempo_em_segundos / 60)
+
+    print(f'O tempo aproximado do Download é: {tempo} minuto(s)')
+
