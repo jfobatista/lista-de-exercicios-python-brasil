@@ -22,7 +22,21 @@ Mostrar raízes com uma casa decimal.
     'Delta é 4, raízes são -1.0 e -3.0'
 
 """
+import math
 
 
 def resolver_equacao_do_segundo_grau(a: float, b: float, c: float):
     """Escreva aqui em baixo a sua solução"""
+    delta = b**2 - (4*a*c)
+
+    if a == 0:
+        return 'Valor do coeficiente a deve ser diferente de 0'
+    if delta < 0:
+        return f'Delta negativo ({delta}), por isso não existem raízes reais'
+    elif delta == 0:
+        x = (math.sqrt(delta) - b) / 2 * a
+        return f'Delta é {delta}, raíz única no valor de {x:.1f}'
+    else:
+        x_1 = (math.sqrt(delta) - b) / 2 * a
+        x_2 = (- math.sqrt(delta) - b) / 2 * a
+        return f'Delta é {delta}, raízes são {x_1:.1f} e {x_2:.1f}'

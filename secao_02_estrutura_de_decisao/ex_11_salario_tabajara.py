@@ -41,3 +41,17 @@ Mostrar valores monetários com duas casas decimais.
 
 def calcular_aumento(salario: float):
     """Escreva aqui em baixo a sua solução"""
+
+    if salario <= 280:
+        porcentagem = 20
+    elif 280 < salario <= 700:
+        porcentagem = 15
+    elif 700 < salario <= 1500:
+        porcentagem = 10
+    else:
+        porcentagem = 5
+
+    print(f'Salário atual: R$ {salario:.2f}')
+    print(f'Aumento porcentual: {porcentagem}%')
+    print(f'Valor do aumento: R$ {salario*porcentagem/100:.2f}')
+    print(f'Novo salário: R$ {salario + (salario*porcentagem/100):.2f}')

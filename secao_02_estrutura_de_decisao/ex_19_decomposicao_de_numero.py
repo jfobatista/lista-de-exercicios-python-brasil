@@ -48,7 +48,92 @@ Observando os termos no plural a colocação do "e", da vírgula entre outros. E
     '7 = 7 unidades'
 
 """
+from math import floor
 
 
 def decompor_numero(numero: int):
     """Escreva aqui em baixo a sua solução"""
+    centenas = floor(numero / 100)
+    dezenas = floor((numero - centenas * 100) / 10)
+    unidades = floor(numero - (centenas * 100) - (dezenas * 10))
+
+    if numero >= 1000:
+        return 'O número precisa ser menor que 1000'
+    if numero < 0:
+        return 'O número precisa ser positivo'
+
+    if centenas > 1 and dezenas > 1 and unidades > 1:
+        numero_text = f'{numero} = {centenas} centenas, {dezenas} dezenas e {unidades} unidades'
+    elif centenas > 1:
+        if dezenas == 0:
+            if unidades == 1:
+                numero_text = f'{numero} = {centenas} centenas e {unidades} unidade'
+            elif unidades > 1:
+                numero_text = f'{numero} = {centenas} centenas e {unidades} unidades'
+            else:
+                numero_text = f'{numero} = {centenas} centenas'
+        elif dezenas > 1:
+            if unidades > 1:
+                numero_text = f'{numero} = {centenas} centenas, {dezenas} dezenas e {unidades} unidades'
+            elif unidades == 1:
+                numero_text = f'{numero} = {centenas} centenas, {dezenas} dezenas e {unidades} unidade'
+            else:
+                numero_text = f'{numero} = {centenas} centenas e {dezenas} dezenas'
+        elif dezenas == 1:
+            if unidades == 1:
+                numero_text = f'{numero} = {centenas} centenas, {dezenas} dezena e {unidades} unidade'
+            elif unidades > 1:
+                numero_text = f'{numero} = {centenas} centenas, {dezenas} dezena e {unidades} unidades'
+            else:
+                numero_text = f'{numero} = {centenas} centenas e {dezenas} dezena'
+    elif centenas == 1:
+        if dezenas == 0:
+            if unidades == 1:
+                numero_text = f'{numero} = {centenas} centena e {unidades} unidade'
+            elif unidades > 1:
+                numero_text = f'{numero} = {centenas} centena e {unidades} unidades'
+            else:
+                numero_text = f'{numero} = {centenas} centena'
+        elif dezenas > 1:
+            if unidades > 1:
+                numero_text = f'{numero} = {centenas} centena, {dezenas} dezenas e {unidades} unidades'
+            elif unidades == 1:
+                numero_text = f'{numero} = {centenas} centena, {dezenas} dezenas e {unidades} unidade'
+            else:
+                numero_text = f'{numero} = {centenas} centena e {dezenas} dezenas'
+        elif dezenas == 1:
+            if unidades == 1:
+                numero_text = f'{numero} = {centenas} centena, {dezenas} dezena e {unidades} unidade'
+            elif unidades > 1:
+                numero_text = f'{numero} = {centenas} centena, {dezenas} dezena e {unidades} unidades'
+            else:
+                numero_text = f'{numero} = {centenas} centena e {dezenas} dezena'
+    elif centenas == 0:
+        if dezenas == 0:
+            if unidades == 1:
+                numero_text = f'{numero} = {unidades} unidade'
+            elif unidades > 1:
+                numero_text = f'{numero} = {unidades} unidades'
+        elif dezenas > 1:
+            if unidades > 1:
+                numero_text = f'{numero} = {dezenas} dezenas e {unidades} unidades'
+            elif unidades == 1:
+                numero_text = f'{numero} = {dezenas} dezenas e {unidades} unidade'
+            else:
+                numero_text = f'{numero} = {dezenas} dezenas'
+        elif dezenas == 1:
+            if unidades == 1:
+                numero_text = f'{numero} = {dezenas} dezena e {unidades} unidade'
+            elif unidades > 1:
+                numero_text = f'{numero} = {dezenas} dezena e {unidades} unidades'
+            else:
+                numero_text = f'{numero} = {dezenas} dezena'
+
+
+        else:
+            if unidades == 1:
+                numero_text = f'{numero} = {unidades} unidade'
+            else:
+                numero_text = f'{numero} = {unidades} unidades'
+
+    return numero_text
