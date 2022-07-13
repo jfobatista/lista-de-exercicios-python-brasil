@@ -22,3 +22,12 @@ arredondamento.
 
 def decidir_se_eh_inteiro_ou_decimal(valor: str) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    x = valor.split('.')
+
+    if len(x) == 1:
+        return 'Inteiro'
+    else:
+        if int(x[1]) > 0:
+            return 'Decimal'
+        return 'Inteiro'
