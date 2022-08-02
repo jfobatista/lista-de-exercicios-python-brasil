@@ -37,3 +37,33 @@ Mostre na tela:
 
 def lancar_dados(*valor_lancamentos):
     """Escreva aqui em baixo a sua solução"""
+    lista_rodou = [0, 0, 0, 0, 0, 0]
+
+    for i in valor_lancamentos:
+        if i == 1:
+            lista_rodou[0] += 1
+        if i == 2:
+            lista_rodou[1] += 1
+        if i == 3:
+            lista_rodou[2] += 1
+        if i == 4:
+            lista_rodou[3] += 1
+        if i == 5:
+            lista_rodou[4] += 1
+        if i == 6:
+            lista_rodou[5] += 1
+    caiu_mais = numero = 0
+    for i in lista_rodou:
+        caiu_mais = max(caiu_mais, i)
+    for i, x in enumerate(lista_rodou):
+        if x == caiu_mais:
+            numero = i + 1
+    print(f'O dado foi lançado {len(valor_lancamentos)} vezes')
+    print(f'O número 1 caiu {lista_rodou[0]} vezes')
+    print(f'O número 2 caiu {lista_rodou[1]} vezes')
+    print(f'O número 3 caiu {lista_rodou[2]} vezes')
+    print(f'O número 4 caiu {lista_rodou[3]} vezes')
+    print(f'O número 5 caiu {lista_rodou[4]} vezes')
+    print(f'O número 6 caiu {lista_rodou[5]} vezes')
+
+    print(f'O lado com o número {numero} caiu mais vezes ({caiu_mais} vezes)')

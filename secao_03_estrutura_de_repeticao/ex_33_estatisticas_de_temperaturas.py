@@ -22,3 +22,20 @@ Mostre a média com uma casa decimal.
 
 def calcular_estatisticas(*temperaturas) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+
+    if not temperaturas:
+        return 'Maior temperatura: não existe. Menor temperatura: não existe. Média: não existe'
+    else:
+        lista = temperaturas
+        temperatura_total = 0
+        maior = menor = lista[0]
+        for i in lista:
+            temperatura_total += i
+            if i > maior:
+                maior = i
+            if menor > i:
+                menor = i
+        media = temperatura_total / len(lista)
+
+        return f'Maior temperatura: {maior}. Menor temperatura: {menor}. Média: {media:.1f}'

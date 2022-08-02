@@ -4,13 +4,13 @@ https://wiki.python.org.br/EstruturaDeRepeticao
 
 O cardápio de uma lanchonete é o seguinte:
 
-Especificação   Código  Preço
-Cachorro Quente 100     R$ 1,20
-Bauru Simples   101     R$ 1,30
-Bauru com ovo   102     R$ 1,50
-Hambúrguer      103     R$ 1,20
-Cheeseburguer   104     R$ 1,30
-Refrigerante    105     R$ 1,00
+Especificação   Código
+Cachorro Quente 100
+Bauru Simples   101
+Bauru com ovo   102
+Hambúrguer      103
+Cheeseburguer   104
+Refrigerante    105
 
 Faça um programa que receba os itens pedidos e as quantidades desejadas.
 Calcule e mostre o valor a ser pago por item (preço * quantidade) e o total geral do pedido e quantidade de itens
@@ -109,3 +109,30 @@ comprados.
 
 def fechar_conta(*itens):
     """Escreva aqui em baixo a sua solução"""
+
+    print('_____________________________________________________________________________')
+    print('|                              RESUMO DA CONTA                              |')
+    print('|---------------------------------------------------------------------------|')
+    print('| Epecificação     | Código | Preço Unitário (R$) | Quantidade | Total (R$) |')
+
+    cardápio = {
+        '100': ['Cachorro Quente', 1.2, 0],
+        '101': ['Bauru Simples', 1.3, 0],
+        '102': ['Bauru com Ovo', 1.5, 0],
+        '103': ['Hamburger', 1.2, 0],
+        '104': ['Cheeseburger', 1.3, 0],
+        '105': ['Refrigerante', 1, 0]
+    }
+    quantidade_de_itens = custo_total = 0
+    for i in itens:
+        if i[0] in cardápio:
+            cardápio[i[0]][2] += i[1]
+            quantidade_de_itens += i[1]
+            custo_total += i[1] * cardápio[i[0]][1]
+    for i in cardápio:
+        if cardápio[i][2] > 0:
+            print(
+                f'| {cardápio[i][0]:<16} | {i:<6} | {cardápio[i][1]:<19.2f} | {cardápio[i][2]:>10} | {cardápio[i][1] * cardápio[i][2]:>10.2f} |')
+    print('|---------------------------------------------------------------------------|')
+    print(f'| Total Geral:                                    | {quantidade_de_itens:>10} | {custo_total:>10.2f} |')
+    print('-----------------------------------------------------------------------------')

@@ -24,3 +24,17 @@ Mostre a média de idade com uma casa decimal.
 
 def classifcar_turma(*idades) -> str:
     """Escreva aqui em baixo a sua solução"""
+    lista = idades
+    soma_idades = 0
+
+    for i in lista:
+        soma_idades += i
+
+    media = soma_idades / len(lista)
+
+    if 0 <= media <= 25:
+        return f'A turma é jovem, pois a média é de {media:.1f} anos'
+    elif 26 < media < 60:
+        return f'A turma é adulta, pois a média é de {media:.1f} anos'
+    else:
+        return f'A turma é idosa, pois a média é de {media:.1f} anos'

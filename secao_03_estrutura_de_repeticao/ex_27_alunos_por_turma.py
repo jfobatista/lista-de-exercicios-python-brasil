@@ -32,7 +32,21 @@ Arredonde o valor da média para baixo.
     Média de alunos por turma: 20
 
 """
+from math import ceil
 
 
 def calcular_media_de_alunos_por_turma():
     """Escreva aqui em baixo a sua solução"""
+    quantidade_de_turmas = int(input('Informe a quantidade de turmas:'))
+    print(f'Número de turmas: {quantidade_de_turmas}')
+    soma_dos_alunos = verifica_turmas = 0
+    while verifica_turmas < quantidade_de_turmas:
+        tamanho = int(input('Informe a quantidade de alunos desta turma:'))
+        if tamanho <= 0 or tamanho > 40:
+            print(f'Uma turma deve ter de 1 a 40 alunos, não é possível ter {tamanho} alunos')
+        else:
+            soma_dos_alunos += tamanho
+            verifica_turmas += 1
+
+    media_de_alunos = ceil(soma_dos_alunos / quantidade_de_turmas)
+    print(f'Média de alunos por turma: {media_de_alunos}')

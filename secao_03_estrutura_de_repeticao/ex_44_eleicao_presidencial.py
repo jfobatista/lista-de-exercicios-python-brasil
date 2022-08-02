@@ -85,8 +85,27 @@ A percentagem de votos em branco sobre o total de votos. Para finalizar o conjun
 
 
 """
-from collections import Counter
 
 
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+    candidatos = {
+        '1': ['Bostonaro', 0],
+        '2': ['Luladrão', 0],
+        '3': ['Dilmanta', 0],
+        '4': ['FHC Isentão', 0],
+        '5': ['Votos Nulos', 0],
+        '6': ['Votos Brancos', 0]
+    }
+    total_de_votos = 0
+    print('Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+    for i in votos:
+        if i in candidatos:
+            candidatos[i[0]][1] += 1
+            total_de_votos += 1
+    for i in candidatos:
+        porcentagem = round((candidatos[i[0]][1] / total_de_votos) * 100, 1)
+        porcentagem_str = str(porcentagem) + '%'
+        if i == '5':
+            print('-------------------------------------------------------------------')
+        print(f'{i:<19} {candidatos[i][0]:<17} {candidatos[i][1]:<5} {porcentagem_str:>6}')

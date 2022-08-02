@@ -56,3 +56,39 @@ para registrar a próxima compra.
 
 def rodar_programa_de_caixa():
     """Escreva aqui em baixo a sua solução"""
+    total_str = 'Total'
+    dinheiro_str = 'Dinheiro'
+    troco_str = 'Troco'
+    valor_total = 0
+    valor_produto = float(input('Informe o valor do produto:'))
+    valor_total += valor_produto
+    print('Lojas Tabajara')
+
+    while valor_produto != -1:
+        valor_produto = float(input('Informe o valor do produto:'))
+        if valor_produto == 0:
+            valor_recebido = float(input('Infome o valor recebido: '))
+            troco = valor_recebido - valor_total
+            print(f'{total_str:<10}: R$ {valor_total:>6.2f}')
+            print(f'{dinheiro_str:<10}: R$ {valor_recebido:>6.2f}')
+            print(f'{troco_str:<10}: R$ {troco:>6.2f}')
+            print('-------------------')
+            print('Lojas Tabajara')
+            valor_total = valor_recebido = troco = 0
+        elif valor_produto > 0:
+            valor_total += valor_produto
+
+    if valor_produto == -1:
+        try:
+            valor_recebido = float(input('Infome o valor recebido: '))
+
+        except IndexError:
+            print('-------------------')
+            print('Programa encerrado!')
+        else:
+            troco = valor_recebido - valor_total
+            print(f'{total_str:<10}: R$ {valor_total:>6.2f}')
+            print(f'{dinheiro_str:<10}: R$ {valor_recebido:>6.2f}')
+            print(f'{troco_str:<10}: R$ {troco:>6.2f}')
+            print('-------------------')
+            print('Programa encerrado!')

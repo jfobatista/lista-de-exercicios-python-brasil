@@ -34,17 +34,12 @@ Caso contrário, ele será classificado como "Inocente".
 def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str, ):
     """Escreva aqui em baixo a sua solução"""
 
+    lista = [telefonou, estava_no_local, mora_perto, devia, trabalhou]
     respostas_positivas = 0
-    if telefonou == 'Sim':
-        respostas_positivas += 1
-    if estava_no_local == 'Sim':
-        respostas_positivas += 1
-    if mora_perto == 'Sim':
-        respostas_positivas += 1
-    if devia == 'Sim':
-        respostas_positivas += 1
-    if trabalhou == 'Sim':
-        respostas_positivas += 1
+
+    for i in lista:
+        if i == 'Sim':
+            respostas_positivas +=1
 
     if 0 <= respostas_positivas <= 1:
         return 'Inocente'

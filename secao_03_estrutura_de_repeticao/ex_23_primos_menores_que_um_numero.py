@@ -43,3 +43,11 @@ from typing import Tuple
 
 def calcular_primos_e_divisoes(n: int) -> Tuple[str, int]:
     """Escreva aqui em baixo a sua solução"""
+    if n == 2 or n == 3:
+        return True
+    elif n % 2 == 0 or n % 3 == 0 or n == 1:
+        for i in range(2, n):
+            if n % i == 0:
+                print(f'É divisível por {i}')
+        return False
+    return True

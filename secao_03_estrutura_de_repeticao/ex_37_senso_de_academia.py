@@ -56,3 +56,46 @@ da média das alturas e dos pesos dos clientes
 
 def rodar_senso():
     """Escreva aqui em baixo a sua solução"""
+    nome = str(input('Infome o nome do aluno'))
+    altura = str(input('Informe a altura do aluno'))
+    peso = str(input('Informe o peso do aluno'))
+    altura = int(altura)
+    peso = int(peso)
+    altura_total = peso_total = 0
+    altura_total += altura
+    peso_total += peso
+    numero_de_alunos = 1
+    nome_mais_gordo = nome_mais_magro = nome_mais_alto = nome_mais_baixo = nome
+    peso_mais_gordo = peso_mais_magro = peso
+    altura_mais_alto = altura_mais_baixo = altura
+    nome = str(input('Infome o nome do aluno'))
+    while nome != '0':
+        altura = str(input('Informe a altura do aluno'))
+        peso = str(input('Informe o peso do aluno'))
+        altura = int(altura)
+        peso = int(peso)
+        altura_total += altura
+        peso_total += peso
+        numero_de_alunos += 1
+
+        if altura > altura_mais_alto:
+            altura_mais_alto = altura
+            nome_mais_alto = nome
+        elif altura < altura_mais_baixo:
+            altura_mais_baixo = altura
+            nome_mais_baixo = nome
+        if peso > peso_mais_gordo:
+            peso_mais_gordo = peso
+            nome_mais_gordo = nome
+        elif peso < peso_mais_magro:
+            peso_mais_magro = peso
+            nome_mais_magro = nome
+        nome = str(input('Infome o nome do aluno'))
+
+    print(f'Cliente mais alto: {nome_mais_alto}, com {altura_mais_alto} centímetros')
+    print(f'Cliente mais baixo: {nome_mais_baixo}, com {altura_mais_baixo} centímetros')
+    print(f'Cliente mais magro: {nome_mais_magro}, com {peso_mais_magro} kilos')
+    print(f'Cliente mais gordo: {nome_mais_gordo}, com {peso_mais_gordo} kilos')
+    print('--------------------------------------------------')
+    print(f'Media de altura dos clientes: {altura_total / numero_de_alunos:.1f} centímetros')
+    print(f'Media de peso dos clientes: {peso_total / numero_de_alunos:.1f} kilos')

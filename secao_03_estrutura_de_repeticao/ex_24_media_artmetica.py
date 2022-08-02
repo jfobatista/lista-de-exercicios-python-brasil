@@ -15,6 +15,5 @@ Faça um programa que calcule o mostre a média aritmética de N notas.
 
 """
 
-
 def calcular_media(*notas) -> float:
     """Escreva aqui em baixo a sua solução"""

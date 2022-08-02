@@ -36,3 +36,22 @@ uma eleição existem três candidatos. Faça um programa que peça o número to
 
 def calcular_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+    corrupto = mentiroso = rouba = votantes = 0
+
+    lista = votos
+
+    for i in lista:
+        if i == 'corrupto':
+            corrupto += 1
+            votantes += 1
+        elif i == 'mentiroso':
+            mentiroso += 1
+            votantes += 1
+        elif i == 'rouba, mas faz':
+            rouba += 1
+            votantes += 1
+
+    print(f'Votantes: {votantes}')
+    print(f'Votos no candidato corrupto: {corrupto}')
+    print(f'Votos no candidato mentiroso: {mentiroso}')
+    print(f'Votos no candidato rouba, mas faz: {rouba}')
