@@ -24,14 +24,6 @@ Gabarito da Prova:
 09 - B
 10 - A
 
-    >>> corrigir(('Renzo','A','B','C','D','E','E','D','C','B','A' ))
-    Aluno                 Nota
-    Renzo                 10
-    ---------------------------
-    Média geral: 10.0
-    Maior nota: 10
-    Menor nota: 10
-    Total de Alunos: 1
     >>> corrigir(
     ... ('Renzo','A','B','C','D','E','E','D','C','B','A' ),
     ... ('Fulano','A','B','C','D','E','E','D','C','B','B' ),
@@ -49,3 +41,28 @@ Gabarito da Prova:
 
 def corrigir(*provas):
     """Escreva aqui em baixo a sua solução"""
+    gabarito = ['A', 'B', 'C', 'D', 'E', 'E', 'D', 'C', 'B', 'A']
+    numero_alunos = maior_nota = somatoria_das_notas = 0
+    menor_nota = 11
+    print('Aluno                 Nota')
+    for i in provas:
+        nota = 0
+        for indice, item in enumerate(i):
+            if indice == 0:
+                nome_aluno = item
+                numero_alunos += 1
+                continue
+            if item == gabarito[indice - 1]:
+                nota += 1
+        print(f'{nome_aluno:<21} {nota:>2}')
+        if maior_nota < nota:
+            maior_nota = nota
+        if menor_nota > nota:
+            menor_nota = nota
+        somatoria_das_notas += nota
+
+    print('---------------------------')
+    print(f'Média geral: {somatoria_das_notas / numero_alunos:.1f}')
+    print(f'Maior nota: {maior_nota}')
+    print(f'Menor nota: {menor_nota}')
+    print(f'Total de Alunos: {numero_alunos}')

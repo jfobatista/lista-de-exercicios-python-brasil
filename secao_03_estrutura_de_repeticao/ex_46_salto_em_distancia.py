@@ -23,10 +23,10 @@ Mostre os valores com uma casa decimal sem arredondar.
     ---------------------------------
     Melhor salto:  6.5 m
     Pior salto: 5.3 m
-    Média dos demais saltos: 5.8 m
+    Média dos demais saltos: 5.9 m
     ---------------------------------
     Resultado final:
-    Rodrigo Curvêllo: 5.8 m
+    Rodrigo Curvêllo: 5.9 m
     >>> calcular_estatiscas_do_salto('João do Pulo', 6.8, 6.5, 6.1, 6.2, 5.4)
     Atleta: João do Pulo
     ---------------------------------
@@ -48,3 +48,21 @@ Mostre os valores com uma casa decimal sem arredondar.
 
 def calcular_estatiscas_do_salto(nome, *saltos):
     """Escreva aqui em baixo a sua solução"""
+    sequencia_saltos = ('Primeiro Salto:', 'Segundo Salto:', 'Terceiro Salto:', 'Quarto Salto:', 'Quinto Salto:')
+    print(f'Atleta: {nome}')
+    print('---------------------------------')
+    quantidade_saltos = 0
+    for indice, item in enumerate(saltos):
+        print(f'{sequencia_saltos[indice]} {item} m')
+        quantidade_saltos += 1
+    melhor_salto = max(saltos)
+    pior_salto = min(saltos)
+    total_saltos = sum(saltos)
+    media_saltos = round((total_saltos - melhor_salto - pior_salto) / (quantidade_saltos - 2), 1)
+    print('---------------------------------')
+    print(f'Melhor salto:  {melhor_salto} m')
+    print(f'Pior salto:  {pior_salto} m')
+    print(f'Média dos demais saltos:  {media_saltos} m')
+    print('---------------------------------')
+    print('Resultado final:')
+    print(f'{nome}: {media_saltos} m')
