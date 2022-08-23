@@ -29,5 +29,5 @@ def calcular_fatorial(n: int) -> int:
     else:
         valor = 1
         for i in range(2, n+1):
-            valor = valor * i
+            valor *= i
         print(f'{valor}')

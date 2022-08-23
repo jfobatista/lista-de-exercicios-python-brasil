@@ -27,3 +27,5 @@ def inverter_inteiro(numero):
     numero_str = numero_str[::-1]
 
     print(numero_str)
+
+

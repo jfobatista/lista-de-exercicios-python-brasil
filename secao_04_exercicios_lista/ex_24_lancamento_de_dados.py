@@ -55,15 +55,10 @@ def lancar_dados(*valor_lancamentos):
     caiu_mais = numero = 0
     for i in lista_rodou:
         caiu_mais = max(caiu_mais, i)
+    print(f'O dado foi lançado {len(valor_lancamentos)} vezes')
     for i, x in enumerate(lista_rodou):
         if x == caiu_mais:
             numero = i + 1
-    print(f'O dado foi lançado {len(valor_lancamentos)} vezes')
-    print(f'O número 1 caiu {lista_rodou[0]} vezes')
-    print(f'O número 2 caiu {lista_rodou[1]} vezes')
-    print(f'O número 3 caiu {lista_rodou[2]} vezes')
-    print(f'O número 4 caiu {lista_rodou[3]} vezes')
-    print(f'O número 5 caiu {lista_rodou[4]} vezes')
-    print(f'O número 6 caiu {lista_rodou[5]} vezes')
+        print(f'O número {i+1} caiu {lista_rodou[i]} vezes')
 
     print(f'O lado com o número {numero} caiu mais vezes ({caiu_mais} vezes)')
