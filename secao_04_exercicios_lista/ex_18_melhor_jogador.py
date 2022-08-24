@@ -43,29 +43,42 @@
     O melhor jogador foi o número 9, com 4 votos, correspondendo a 50% do total de votos.
 
     >>> from secao_04_exercicios_lista import ex_18_melhor_jogador
-    >>> entradas = ['0','1', '1','2','2','2','1']
+    >>> entradas = ['0','1', '1','2','2','25','2']
     >>> ex_18_melhor_jogador.input = lambda k: entradas.pop()
     >>> ex_18_melhor_jogador.melhor_jogador()
+    Enquete: Quem foi o melhor jogador?
+    Número do Jogador (0 = fim): 2
+    Número do Jogador (0 = fim): 25
+    Informe um valor entre 1 e 23 ou 0 para sair!
+    Número do Jogador (0 = fim): 2
+    Número do Jogador (0 = fim): 2
+    Número do Jogador (0 = fim): 1
+    Número do Jogador (0 = fim): 1
     Resultado da votação:
-    Foram computados 6 votos
+    Foram computados 5 votos.
     Jogadores    Votos        Porcentagem
-    1               3            50%
-    2               3            50%
-
+    2               3            60%
+    1               2            40%
+    O melhor jogador foi o número 2, com 3 votos, correspondendo a 60% do total de votos.
 """
 
 
 def melhor_jogador():
+    print('Enquete: Quem foi o melhor jogador?')
+
     jogadores = []
     votos = []
     voto_melhor = int(input('Número do Jogador (0 = fim): '))
 
     while voto_melhor > 0:
+        print(f'Número do Jogador (0 = fim): {voto_melhor}')
         if not jogadores:
             jogadores.append(voto_melhor)
             votos.append(1)
         else:
-            if voto_melhor in jogadores:
+            if not (1 <= voto_melhor <= 23):
+                print('Informe um valor entre 1 e 23 ou 0 para sair!')
+            elif voto_melhor in jogadores:
                 votos[jogadores.index(voto_melhor)] += 1
             else:
                 jogadores.append(voto_melhor)
@@ -76,9 +89,13 @@ def melhor_jogador():
     for i in votos:
         num_votos += i
     print('Resultado da votação:')
-    print(f'Foram computados {num_votos} votos')
+
+    print(f'Foram computados {num_votos} votos.')
 
     print('Jogadores    Votos        Porcentagem')
 
-    for indice,item in enumerate(jogadores):
-        print(f'{item:<15} {votos[indice]:<4} {round(votos[indice]/num_votos * 100):>10}%')
+    for indice, item in enumerate(jogadores):
+        print(f'{item:<15} {votos[indice]:<4} {votos[indice] / num_votos:>11.0%}')
+    melhor_votado = jogadores[votos.index(max(votos))]
+
+    print(f'O melhor jogador foi o número {melhor_votado}, com {(max(votos))} votos, correspondendo a {votos[votos.index(max(votos))] / num_votos:.0%} do total de votos.')
