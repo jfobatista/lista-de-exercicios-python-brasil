@@ -13,7 +13,6 @@
     >>> eh_palindromo('Teste')
     'Não é Palindromo'
 
-
 """
 import unidecode
 
